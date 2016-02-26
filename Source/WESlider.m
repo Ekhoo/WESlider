@@ -17,6 +17,7 @@ static CGFloat const kMinimumOffsetToStick = 2.0f;
 @interface WESlider ()
 
 @property(nonatomic, strong, readwrite) NSArray *chunks;
+@property(nonatomic, assign, readwrite) BOOL canStick;
 
 @end
 
@@ -26,7 +27,13 @@ static CGFloat const kMinimumOffsetToStick = 2.0f;
     self = [super initWithFrame:CGRectMake(0.0f, 0.0f, width, kSliderHeight)];
     
     if (self) {
+        _canStick = NO;
+        
         [self addTarget:self action:@selector(sliderValueDidChange) forControlEvents:UIControlEventValueChanged];
+        [self addTarget:self action:@selector(sliderPressed) forControlEvents:UIControlEventTouchDown];
+        [self addTarget:self action:@selector(sliderReleased) forControlEvents:UIControlEventTouchUpInside];
+        [self addTarget:self action:@selector(sliderReleased) forControlEvents:UIControlEventTouchUpOutside];
+        [self addTarget:self action:@selector(sliderReleased) forControlEvents:UIControlEventTouchCancel];
     }
     
     return self;
@@ -116,11 +123,23 @@ static CGFloat const kMinimumOffsetToStick = 2.0f;
 }
 
 - (void)sliderValueDidChange {
+    if (!_canStick) {
+        return;
+    }
+    
     WEChunk *closestChunk = [self getClosestChunk];
     
     if (closestChunk) {
         [self setValue:closestChunk.offset animated:YES];
     }
+}
+
+- (void)sliderPressed {
+    _canStick = YES;
+}
+
+- (void)sliderReleased {
+    _canStick = NO;
 }
 
 @end
