@@ -28,7 +28,7 @@ pod "WESlider", '~> 0.0.1'
     slider.maximumValue = 100.0f;
     slider.minimumValue = 0.0f;
     slider.value = 0.0f;
-    _slider.center = self.view.center;
+    slider.center = self.view.center;
     
     [slider setChunks:@[
                           [[WEChunk alloc] initWithDuration:25.0f chunkColor:[UIColor darkGrayColor]],
