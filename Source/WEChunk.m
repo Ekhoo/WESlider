@@ -21,12 +21,31 @@
     return self;
 }
 
+- (instancetype)initWithOffset:(CGFloat)offset chunkColor:(UIColor *)chunkColor {
+    self = [super init];
+    
+    if (self) {
+        _offset = offset;
+        _chunkColor = chunkColor;
+    }
+    
+    return self;
+}
+
 + (instancetype)chunkWithDuration:(NSTimeInterval)duration chunkColor:(UIColor *)chunkColor {
     return [[WEChunk alloc] initWithDuration:duration chunkColor:chunkColor];
 }
 
 + (instancetype)chunkWithDuration:(NSTimeInterval)duration {
     return [[WEChunk alloc] initWithDuration:duration chunkColor:[UIColor darkGrayColor]];
+}
+
++ (instancetype)chunkWithOffset:(CGFloat)offset chunkColor:(UIColor *)chunkColor {
+    return [[WEChunk alloc] initWithOffset:offset chunkColor:chunkColor];
+}
+
++ (instancetype)chunkWithOffset:(CGFloat)offset {
+    return [[WEChunk alloc] initWithOffset:offset chunkColor:[UIColor darkGrayColor]];
 }
 
 @end

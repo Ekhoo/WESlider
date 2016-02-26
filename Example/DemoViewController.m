@@ -31,7 +31,7 @@
     
     [_slider setChunks:@[
                           [WEChunk chunkWithDuration:25.0f],
-                          [WEChunk chunkWithDuration:25.0f],
+                          [WEChunk chunkWithOffset:50],
                           [WEChunk chunkWithDuration:25.0f]
                          ]];
     

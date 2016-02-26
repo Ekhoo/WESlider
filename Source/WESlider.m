@@ -56,12 +56,16 @@ static CGFloat const kMinimumOffsetToStick = 2.0f;
         }
     }
     
-    CGFloat offset = ((WEChunk *)chunks.firstObject).duration;
+    CGFloat offset = 0.0f;
     
     for (WEChunk *chunk in chunks) {
-        chunk.offset = offset;
+        if (chunk.duration > 0) {
+            offset += chunk.duration;
+        } else {
+            offset = chunk.offset;
+        }
         
-        offset += chunk.duration;
+        chunk.offset = offset;
     }
     
     _chunks = chunks;
