@@ -16,7 +16,7 @@ WESlider is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "WESlider", '~> 0.0.1'
+pod "WESlider", '~> 0.0.2'
 ```
 
 # Usage
@@ -27,13 +27,11 @@ pod "WESlider", '~> 0.0.1'
     WESlider *slider = [[WESlider alloc] initWithWidth:CGRectGetWidth(self.view.frame)];
     slider.maximumValue = 100.0f;
     slider.minimumValue = 0.0f;
-    slider.value = 0.0f;
-    slider.center = self.view.center;
     
-    [slider setChunks:@[
-                          [[WEChunk alloc] initWithDuration:25.0f chunkColor:[UIColor darkGrayColor]],
-                          [[WEChunk alloc] initWithDuration:25.0f chunkColor:[UIColor darkGrayColor]],
-                          [[WEChunk alloc] initWithDuration:25.0f chunkColor:[UIColor darkGrayColor]]
+    [_slider setChunks:@[
+                          [WEChunk chunkWithDuration:25.0f],
+                          [WEChunk chunkWithOffset:50],
+                          [WEChunk chunkWithDuration:25.0f]
                          ]];
     
     [self.view addSubview:slider];
