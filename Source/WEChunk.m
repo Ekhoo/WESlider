@@ -10,11 +10,12 @@
 
 @implementation WEChunk
 
-- (instancetype)initWithDuration:(NSTimeInterval)duration {
+- (instancetype)initWithDuration:(NSTimeInterval)duration chunkColor:(UIColor *)chunkColor {
     self = [super init];
     
     if (self) {
         _duration = duration;
+        _chunkColor = chunkColor;
     }
     
     return self;

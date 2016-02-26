@@ -94,7 +94,7 @@ static CGFloat const kMinimumOffsetToStick = 2.0f;
         CGFloat chunkX = floor((chunk.offset - kChunkWidth / 2.0f) * sliderWidth / self.maximumValue);
         UIView *chunkView = [[UIView alloc] initWithFrame:CGRectMake(chunkX, floor(CGRectGetHeight(self.frame) / 2.0f - kChunkHeight / 2 + 1.0), kChunkWidth, kChunkHeight)];
         
-        chunkView.backgroundColor = [UIColor darkGrayColor];
+        chunkView.backgroundColor = chunk.chunkColor;
         chunkView.tag = kChunkTag;
         
         [self insertSubview:chunkView belowSubview:referenceView];
