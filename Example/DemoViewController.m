@@ -30,9 +30,9 @@
     _slider.center = self.view.center;
     
     [_slider setChunks:@[
-                          [[WEChunk alloc] initWithDuration:25.0f chunkColor:[UIColor darkGrayColor]],
-                          [[WEChunk alloc] initWithDuration:25.0f chunkColor:[UIColor darkGrayColor]],
-                          [[WEChunk alloc] initWithDuration:25.0f chunkColor:[UIColor darkGrayColor]]
+                          [WEChunk chunkWithDuration:25.0f],
+                          [WEChunk chunkWithDuration:25.0f],
+                          [WEChunk chunkWithDuration:25.0f]
                          ]];
     
     [self.view addSubview:_slider];

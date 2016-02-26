@@ -14,6 +14,7 @@
 @property(nonatomic, assign, readwrite) CGFloat offset;
 @property(nonatomic, readwrite, readwrite) UIColor *chunkColor;
 
-- (instancetype)initWithDuration:(NSTimeInterval)duration chunkColor:(UIColor *)chunkColor;
++ (instancetype)chunkWithDuration:(NSTimeInterval)duration chunkColor:(UIColor *)chunkColor;
++ (instancetype)chunkWithDuration:(NSTimeInterval)duration;
 
 @end

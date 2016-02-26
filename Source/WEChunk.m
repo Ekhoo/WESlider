@@ -21,4 +21,12 @@
     return self;
 }
 
++ (instancetype)chunkWithDuration:(NSTimeInterval)duration chunkColor:(UIColor *)chunkColor {
+    return [[WEChunk alloc] initWithDuration:duration chunkColor:chunkColor];
+}
+
++ (instancetype)chunkWithDuration:(NSTimeInterval)duration {
+    return [[WEChunk alloc] initWithDuration:duration chunkColor:[UIColor darkGrayColor]];
+}
+
 @end
