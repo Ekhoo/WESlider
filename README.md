@@ -5,14 +5,14 @@
 [![Platform](https://img.shields.io/cocoapods/p/WESlider.svg?style=flat)](http://cocoapods.org/pods/WESlider)
 ![](https://img.shields.io/badge/Supported-iOS7-4BC51D.svg?style=flat-square)
 
-A smart slider with chapters
+Simple and light weight slider with chapter management
 
 # Demo
 ![WESlider](https://github.com/Ekhoo/WESlider/blob/master/Source/Asset/slider.gif)
 
 # Installation
 ## CocoaPods
-Loader is available through [CocoaPods](http://cocoapods.org). To install
+WESlider is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
