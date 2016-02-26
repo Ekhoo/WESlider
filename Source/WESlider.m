@@ -42,7 +42,7 @@ static CGFloat const kMinimumOffsetToStick = 2.0f;
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    if (![self hasChunks]) {
+    if (_chunks && ![self hasChunks]) {
         [self displayChunks];
     }
 }
