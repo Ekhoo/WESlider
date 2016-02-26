@@ -26,6 +26,7 @@
     _slider.maximumValue = 100.0f;
     _slider.minimumValue = 0.0f;
     _slider.value = 0.0f;
+    _slider.minimumTrackTintColor = [UIColor colorWithRed:252.0f / 255.0f green:204.0f / 255.0f blue:47.0f / 255.0f alpha:1.0f];
     _slider.center = self.view.center;
     
     [_slider setChunks:@[

@@ -12,6 +12,7 @@ static CGFloat const kSliderHeight = 31.0f;
 static NSInteger const kChunkTag = 42;
 static CGFloat const kChunkWidth = 3.0;
 static CGFloat const kChunkHeight = 2.0;
+static CGFloat const kMinimumOffsetToStick = 2.0f;
 
 @interface WESlider ()
 
@@ -25,7 +26,7 @@ static CGFloat const kChunkHeight = 2.0;
     self = [super initWithFrame:CGRectMake(0.0f, 0.0f, width, kSliderHeight)];
     
     if (self) {
-        
+        [self addTarget:self action:@selector(sliderValueDidChange) forControlEvents:UIControlEventValueChanged];
     }
     
     return self;
@@ -76,7 +77,7 @@ static CGFloat const kChunkHeight = 2.0;
     UIView *referenceView = nil;
     
     for (UIView *view in self.subviews) {
-        if (view.frame.size.height == kSliderHeight && view.frame.size.width == kSliderHeight) {
+        if ([view isKindOfClass:[UIImageView class]] && view.frame.size.height == view.frame.size.width) {
             referenceView = view;
             break;
         }
@@ -93,10 +94,32 @@ static CGFloat const kChunkHeight = 2.0;
         CGFloat chunkX = floor((chunk.offset - kChunkWidth / 2.0f) * sliderWidth / self.maximumValue);
         UIView *chunkView = [[UIView alloc] initWithFrame:CGRectMake(chunkX, floor(CGRectGetHeight(self.frame) / 2.0f - kChunkHeight / 2 + 1.0), kChunkWidth, kChunkHeight)];
         
-        chunkView.backgroundColor = [UIColor blackColor];
+        chunkView.backgroundColor = [UIColor darkGrayColor];
         chunkView.tag = kChunkTag;
         
         [self insertSubview:chunkView belowSubview:referenceView];
+    }
+}
+
+- (WEChunk *)getClosestChunk {
+    WEChunk *closestChunk = nil;
+    
+    for (WEChunk *chunk in _chunks) {
+        if (ABS(chunk.offset - self.value) <= kMinimumOffsetToStick) {
+            closestChunk = chunk;
+            
+            break;
+        }
+    }
+    
+    return closestChunk;
+}
+
+- (void)sliderValueDidChange {
+    WEChunk *closestChunk = [self getClosestChunk];
+    
+    if (closestChunk) {
+        [self setValue:closestChunk.offset animated:YES];
     }
 }
 
