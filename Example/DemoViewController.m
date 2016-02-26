@@ -7,8 +7,11 @@
 //
 
 #import "DemoViewController.h"
+#import "WESlider.h"
 
 @interface DemoViewController ()
+
+@property(nonatomic, strong, readonly) WESlider *slider;
 
 @end
 
@@ -17,7 +20,21 @@
 - (void)loadView {
     [super loadView];
     
-    self.view.backgroundColor = [UIColor redColor];
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    _slider = [[WESlider alloc] initWithWidth:CGRectGetWidth(self.view.frame)];
+    _slider.maximumValue = 100.0f;
+    _slider.minimumValue = 0.0f;
+    _slider.value = 0.0f;
+    _slider.center = self.view.center;
+    
+    [_slider setChunks:@[
+                          [[WEChunk alloc] initWithDuration:25.0f],
+                          [[WEChunk alloc] initWithDuration:25.0f],
+                          [[WEChunk alloc] initWithDuration:25.0f]
+                         ]];
+    
+    [self.view addSubview:_slider];
 }
 
 - (void)viewDidLoad {

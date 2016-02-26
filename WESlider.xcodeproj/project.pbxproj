@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE5DDECF1C80499400E5E276 /* WESlider.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5DDECE1C80499400E5E276 /* WESlider.m */; };
+		BE5DDED21C804CB600E5E276 /* WEChunk.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5DDED11C804CB600E5E276 /* WEChunk.m */; };
 		BE8E00F31C80365200642595 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8E00EF1C80365200642595 /* AppDelegate.m */; };
 		BE8E00F41C80365200642595 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE8E00F01C80365200642595 /* Assets.xcassets */; };
 		BE8E00F51C80365200642595 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8E00F21C80365200642595 /* DemoViewController.m */; };
@@ -15,6 +17,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BE5DDECD1C80499400E5E276 /* WESlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WESlider.h; path = Source/WESlider.h; sourceTree = SOURCE_ROOT; };
+		BE5DDECE1C80499400E5E276 /* WESlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WESlider.m; path = Source/WESlider.m; sourceTree = SOURCE_ROOT; };
+		BE5DDED01C804CB600E5E276 /* WEChunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WEChunk.h; path = Source/WEChunk.h; sourceTree = SOURCE_ROOT; };
+		BE5DDED11C804CB600E5E276 /* WEChunk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WEChunk.m; path = Source/WEChunk.m; sourceTree = SOURCE_ROOT; };
 		BE8E00EE1C80365200642595 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Example/AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		BE8E00EF1C80365200642595 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Example/AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		BE8E00F01C80365200642595 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Example/Assets.xcassets; sourceTree = SOURCE_ROOT; };
@@ -37,6 +43,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE5DDECC1C80497700E5E276 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				BE5DDECD1C80499400E5E276 /* WESlider.h */,
+				BE5DDECE1C80499400E5E276 /* WESlider.m */,
+				BE5DDED01C804CB600E5E276 /* WEChunk.h */,
+				BE5DDED11C804CB600E5E276 /* WEChunk.m */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
 		BE9E2BA01C7F64C0007DA60D = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +73,7 @@
 		BE9E2BAB1C7F64C0007DA60D /* WESlider */ = {
 			isa = PBXGroup;
 			children = (
+				BE5DDECC1C80497700E5E276 /* Source */,
 				BE8E00EE1C80365200642595 /* AppDelegate.h */,
 				BE8E00EF1C80365200642595 /* AppDelegate.m */,
 				BE8E00F01C80365200642595 /* Assets.xcassets */,
@@ -146,6 +164,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE5DDED21C804CB600E5E276 /* WEChunk.m in Sources */,
+				BE5DDECF1C80499400E5E276 /* WESlider.m in Sources */,
 				BE8E00F51C80365200642595 /* DemoViewController.m in Sources */,
 				BE8E00FF1C80366700642595 /* main.m in Sources */,
 				BE8E00F31C80365200642595 /* AppDelegate.m in Sources */,
