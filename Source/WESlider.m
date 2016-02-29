@@ -47,14 +47,24 @@ static CGFloat const kMinimumOffsetToStick = 2.0f;
     }
 }
 
-- (void)setChunks:(NSArray *)chunks {
-    _chunks = nil;
+- (void)setFrame:(CGRect)frame {
+    [self removeChunks];
     
+    [super setFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, kSliderHeight)];
+}
+
+- (void)removeChunks {
     for (UIView *view in self.subviews) {
         if (view.tag == kChunkTag) {
             [view removeFromSuperview];
         }
     }
+}
+
+- (void)setChunks:(NSArray *)chunks {
+    _chunks = nil;
+    
+    [self removeChunks];
     
     CGFloat offset = 0.0f;
     
