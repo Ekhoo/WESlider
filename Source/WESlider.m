@@ -12,7 +12,6 @@ static CGFloat const kSliderHeight = 31.0f;
 static NSInteger const kChunkTag = 42;
 static CGFloat const kChunkWidth = 3.0;
 static CGFloat const kChunkHeight = 2.0;
-static CGFloat const kMinimumOffsetToStick = 2.0f;
 
 @interface WESlider ()
 
@@ -28,6 +27,7 @@ static CGFloat const kMinimumOffsetToStick = 2.0f;
     
     if (self) {
         _canStick = NO;
+        _minimumOffsetToStick = 5.0f;
         
         [self addTarget:self action:@selector(sliderValueDidChange) forControlEvents:UIControlEventValueChanged];
         [self addTarget:self action:@selector(sliderPressed) forControlEvents:UIControlEventTouchDown];
@@ -37,6 +37,12 @@ static CGFloat const kMinimumOffsetToStick = 2.0f;
     }
     
     return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    NSAssert(NO, @"You have to use the pre defined initializer.");
+    
+    return nil;
 }
 
 - (void)layoutSubviews {
@@ -124,9 +130,12 @@ static CGFloat const kMinimumOffsetToStick = 2.0f;
 
 - (WEChunk *)getClosestChunk {
     WEChunk *closestChunk = nil;
+    CGFloat currentValueXPos = self.value * CGRectGetWidth(self.frame) / self.maximumValue;
     
     for (WEChunk *chunk in _chunks) {
-        if (ABS(chunk.offset - self.value) <= kMinimumOffsetToStick) {
+        CGFloat chunkValueXPos = chunk.offset * CGRectGetWidth(self.frame) / self.maximumValue;
+        
+        if (ABS(chunkValueXPos - currentValueXPos) <= _minimumOffsetToStick) {
             closestChunk = chunk;
             
             break;
