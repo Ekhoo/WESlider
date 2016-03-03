@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "WESlider"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.summary      = "Amazing slider with chapter management"
 
   s.description  = "Simple and light weight slider with chapter management"
