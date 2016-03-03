@@ -16,7 +16,7 @@ WESlider is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "WESlider", '~> 0.0.4'
+pod "WESlider", '~> 0.0.5'
 ```
 
 # Usage
