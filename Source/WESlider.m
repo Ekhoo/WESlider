@@ -114,11 +114,16 @@ static CGFloat const kChunkHeight = 2.0;
 }
 
 - (void)displayChunks {
-    CGFloat sliderWidth = CGRectGetWidth(self.frame);
     UIView *referenceView = [self getReferenceView];
+    CGFloat sliderWidth = CGRectGetWidth(self.frame) - CGRectGetWidth(referenceView.frame);
     
     for (WEChunk *chunk in _chunks) {
-        CGFloat chunkX = floor((chunk.offset - kChunkWidth / 2.0f) * sliderWidth / self.maximumValue);
+        
+        if (chunk.offset >= self.maximumValue) {
+            break;
+        }
+        
+        CGFloat chunkX = floor(chunk.offset * sliderWidth / self.maximumValue) + CGRectGetWidth(referenceView.frame) / 2.0f - kChunkWidth / 2.0f;
         UIView *chunkView = [[UIView alloc] initWithFrame:CGRectMake(chunkX, floor(CGRectGetHeight(self.frame) / 2.0f - kChunkHeight / 2 + 1.0), kChunkWidth, kChunkHeight)];
         
         chunkView.backgroundColor = chunk.chunkColor;
@@ -163,6 +168,12 @@ static CGFloat const kChunkHeight = 2.0;
 
 - (void)sliderReleased {
     _canStick = NO;
+}
+
+- (void)setMaximumValue:(float)maximumValue {
+    [super setMaximumValue:maximumValue];
+    
+    [self setFrame:self.frame];
 }
 
 @end
